@@ -112,6 +112,10 @@ export function validateOrigin(request: NextRequest): {
  * 
  * NSPFRP: Single source of truth middleware for all Instrumentation API routes
  * 
+ * Authentication can be enabled/disabled via ENABLE_API_AUTH environment variable:
+ * - ENABLE_API_AUTH=true (default): Requires API key authentication
+ * - ENABLE_API_AUTH=false: Disables authentication (development/testing only)
+ * 
  * Usage:
  * ```typescript
  * const auth = await requireAPIKey(request);
@@ -127,7 +131,21 @@ export async function requireAPIKey(
   error?: string;
   apiKey?: string;
 }> {
-  // Validate API key
+  // Check if authentication is disabled via config
+  // Defaults to true (require auth) if not set
+  const enableAuth = process.env.ENABLE_API_AUTH !== 'false';
+  
+  if (!enableAuth) {
+    // Authentication disabled - allow all requests
+    // WARNING: Only use this in development/testing
+    console.warn('[API Key Auth] WARNING: API authentication is DISABLED. This should only be used in development.');
+    return {
+      valid: true,
+      apiKey: 'auth-disabled'
+    };
+  }
+
+  // Validate API key (authentication enabled)
   const keyValidation = validateAPIKey(request);
   if (!keyValidation.valid) {
     return {

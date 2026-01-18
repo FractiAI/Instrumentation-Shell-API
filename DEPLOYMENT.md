@@ -15,8 +15,13 @@ The Instrumentation Shell API is protected using **Bearer Token authentication**
 Set these in Vercel Dashboard → Settings → Environment Variables:
 
 ```env
-# REQUIRED: API Key for authentication
+# REQUIRED: API Key for authentication (required if ENABLE_API_AUTH is true)
 INSTRUMENTATION_API_KEY=your-secret-api-key-here
+
+# OPTIONAL: Enable/disable API authentication (default: true)
+# Set to "false" to disable authentication (DEVELOPMENT/TESTING ONLY)
+# WARNING: Never disable authentication in production
+ENABLE_API_AUTH=true
 
 # OPTIONAL: Origin validation (comma-separated list)
 AUTHORIZED_CALLER_ORIGINS=https://syntheverse-poc.vercel.app,https://octave-2-public-cloud-shell.vercel.app
@@ -101,10 +106,14 @@ curl -X POST https://your-api.vercel.app/api/instrumentation/score \
 
 ## 🔒 Security Features
 
-### 1. API Key Authentication
+### 1. API Key Authentication (Configurable)
 - ✅ Bearer token authentication on all protected routes
+- ✅ **Configurable via `ENABLE_API_AUTH` environment variable**
+  - `ENABLE_API_AUTH=true` (default): Requires API key authentication
+  - `ENABLE_API_AUTH=false`: Disables authentication (development/testing only)
 - ✅ Constant-time comparison to prevent timing attacks
 - ✅ Secure key storage in Vercel environment variables
+- ⚠️ **WARNING**: Never set `ENABLE_API_AUTH=false` in production
 
 ### 2. Origin Validation (Optional)
 - ✅ Configurable origin whitelist
