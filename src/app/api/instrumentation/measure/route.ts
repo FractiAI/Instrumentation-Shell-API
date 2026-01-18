@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
       coherence: evaluation.coherence,
       alignment: evaluation.alignment,
       toggles: toggles || {},
-      seed: false,
+      seed: null,
       bridgeSpec: bridgeSpec || null,
     });
 
