@@ -1,10 +1,11 @@
-# Syntheverse Instrumentation Shell API
+# Instrumentation Shell API
 
-**Repository:** Syntheverse-Instrumentation-Shell-API  
+**Repository:** Instrumentation-Shell-API  
 **Octave:** Instrumentation Core  
 **Purpose:** Instrument-grade measurement and verification API  
 **Status:** ✅ **READY FOR VERCEL DEPLOYMENT**  
-**Protocol:** NSPFRP-Compliant
+**Protocol:** NSPFRP-Compliant  
+**Architecture:** Standalone API service, calls Octave 2 Public Cloud Shell
 
 ---
 

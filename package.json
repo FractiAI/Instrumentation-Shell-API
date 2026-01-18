@@ -1,7 +1,7 @@
 {
-  "name": "syntheverse-instrumentation-shell-api",
+  "name": "instrumentation-shell-api",
   "version": "1.0.0",
-  "description": "Instrument-grade measurement and verification API - NSPFRP Compliant",
+  "description": "Instrumentation Shell API - Instrument-grade measurement and verification API (NSPFRP Compliant)",
   "private": true,
   "scripts": {
     "dev": "next dev",
