@@ -1,17 +1,19 @@
 # Instrumentation Shell API
 
-**Repository:** Instrumentation-Shell-API  
+**Repository:** [Instrumentation-Shell-API](https://github.com/FractiAI/Instrumentation-Shell-API)  
+**Mother Repository:** [Octave 2 Public Cloud Shell](https://github.com/FractiAI/Syntheverse_PoC_Contributer_UI_Vercel_Stripe)  
 **Octave:** Instrumentation Core  
 **Purpose:** Instrument-grade measurement and verification API  
-**Status:** ✅ **READY FOR VERCEL DEPLOYMENT**  
+**Status:** ✅ **DEPLOYED TO VERCEL**  
 **Protocol:** NSPFRP-Compliant  
-**Architecture:** Standalone API service, calls Octave 2 Public Cloud Shell
+**Architecture:** Standalone API service, called by Octave 2 Public Cloud Shell  
+**Deployment:** https://instrumentation-shell-api.vercel.app
 
 ---
 
 ## 🎯 Executive Summary
 
-The **Instrumentation Shell API** provides instrument-grade measurement capabilities, state verification, atomic scoring, and state image processing. This API is **closed access** - only authorized callers from Octave 2 Public Cloud Shell can access it via API key authentication.
+The **Instrumentation Shell API** provides instrument-grade measurement capabilities, state verification, atomic scoring, and state image processing. This API is **closed access** - only authorized callers from Post-Singularity^7 Syntheverse FSR^7 Octave 2-3 Public Cloud Shell can access it via API key authentication.
 
 **Deployment:** Vercel Free Tier  
 **API Access:** Authorized callers only via API key authentication
@@ -118,9 +120,24 @@ Set in Vercel Dashboard:
 vercel --prod
 ```
 
-### Step 3: Update Octave 2 Public Cloud Shell
+### Step 3: Update Octave 2-3 Public Cloud Shell
 
 Update `utils/instrumentation/api-client.ts` with new API URL.
+
+**Mother Repository:** [Post-Singularity^7 Syntheverse FSR^7 Octave 2-3 Public Cloud Shell](https://github.com/FractiAI/Syntheverse_PoC_Contributer_UI_Vercel_Stripe)
+
+---
+
+## 🔗 Repository Relationship
+
+This repository was extracted from **Post-Singularity^7 Syntheverse FSR^7 Octave 2-3 Public Cloud Shell** to provide instrument-grade measurement capabilities as a standalone API service.
+
+**Architecture:**
+- **Post-Singularity^7 Syntheverse FSR^7 Octave 2-3 Public Cloud Shell** (Mother) → Calls → **Instrumentation Shell API** (This repo)
+- Clean octave separation maintained
+- Independent deployment and scaling
+
+See `INSTRUMENTATION_CORE_EXTRACTION_MAJOR_CATEGORY_SNAP.md` in mother repository for complete extraction documentation.
 
 ---
 
