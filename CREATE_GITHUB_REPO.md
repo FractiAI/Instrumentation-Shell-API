@@ -6,7 +6,7 @@
 cd instrumentation-shell-api
 
 # Create repository and push
-gh repo create Syntheverse-Instrumentation-Shell-API \
+gh repo create Instrumentation-Shell-API \
   --public \
   --description "Instrument-grade measurement and verification API - NSPFRP Compliant" \
   --source=. \
@@ -21,7 +21,7 @@ gh repo create Syntheverse-Instrumentation-Shell-API \
    - Sign in to your account
 
 2. **Create Repository:**
-   - **Repository name:** `Syntheverse-Instrumentation-Shell-API`
+   - **Repository name:** `Instrumentation-Shell-API`
    - **Description:** `Instrument-grade measurement and verification API - NSPFRP Compliant`
    - **Visibility:** Public or Private (your choice)
    - **DO NOT** initialize with README, .gitignore, or license (we already have these)
@@ -30,7 +30,7 @@ gh repo create Syntheverse-Instrumentation-Shell-API \
 3. **Push Existing Code:**
    ```bash
    cd instrumentation-shell-api
-   git remote add origin https://github.com/FractiAI/Syntheverse-Instrumentation-Shell-API.git
+   git remote add origin https://github.com/FractiAI/Instrumentation-Shell-API.git
    git branch -M main
    git push -u origin main
    ```
@@ -47,7 +47,7 @@ curl -X POST \
   -H "Accept: application/vnd.github.v3+json" \
   https://api.github.com/user/repos \
   -d '{
-    "name": "Syntheverse-Instrumentation-Shell-API",
+    "name": "Instrumentation-Shell-API",
     "description": "Instrument-grade measurement and verification API - NSPFRP Compliant",
     "private": false
   }'
@@ -76,4 +76,4 @@ Once the repository is created and pushed:
 
 ---
 
-**Repository will be:** `https://github.com/FractiAI/Syntheverse-Instrumentation-Shell-API`
+**Repository will be:** `https://github.com/FractiAI/Instrumentation-Shell-API`

@@ -17,7 +17,7 @@
 
 2. **Repository Settings:**
    - **Owner:** FractiAI
-   - **Repository name:** `Syntheverse-Instrumentation-Shell-API`
+   - **Repository name:** `Instrumentation-Shell-API`
    - **Description:** `Instrument-grade measurement and verification API - NSPFRP Compliant`
    - **Visibility:** Public (recommended) or Private
    - ⚠️ **DO NOT** check "Add a README file" (we already have one)
@@ -28,7 +28,7 @@
 4. **Then run these commands:**
    ```bash
    cd instrumentation-shell-api
-   git remote add origin https://github.com/FractiAI/Syntheverse-Instrumentation-Shell-API.git
+   git remote add origin https://github.com/FractiAI/Instrumentation-Shell-API.git
    git push -u origin main
    ```
 
@@ -43,7 +43,7 @@ Provide your GitHub token and I can create it via API.
 ## 📋 After Repository is Created
 
 The repository URL will be:
-**https://github.com/FractiAI/Syntheverse-Instrumentation-Shell-API**
+**https://github.com/FractiAI/Instrumentation-Shell-API**
 
 Then we can:
 1. ✅ Push the code
