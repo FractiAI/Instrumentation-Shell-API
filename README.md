@@ -5,9 +5,10 @@
 **Octave:** Instrumentation Core  
 **Purpose:** Instrument-grade measurement and verification API  
 **Status:** ✅ **DEPLOYED TO VERCEL**  
-**Protocol:** NSPFRP-Compliant  
+**Protocol:** NSPFRP-Compliant + GlyphLang/IceLayer  
 **Architecture:** Standalone API service, called by Octave 2 Public Cloud Shell  
-**Deployment:** https://instrumentation-shell-api.vercel.app
+**Deployment:** https://instrumentation-shell-api.vercel.app  
+**Team:** [See TEAM.md](./TEAM.md) - Solo polymath across 7 disciplines (Natural Coordination)
 
 ---
 
@@ -154,8 +155,76 @@ See `INSTRUMENTATION_CORE_EXTRACTION_MAJOR_CATEGORY_SNAP.md` in mother repositor
 **Version:** 1.0.0  
 **Last Updated:** January 2025
 
-## 📝 Recent Updates
+## 📝 Recent Updates (January 23, 2026)
 
+### ✨ Major Integration: GlyphLang/IceLayer Verification Protocol
+
+**What's New:**
+- ✅ **Fail-Closed Verification** - Evidence-bound claims enforced via GlyphLang v0.3 + IceLayer v0.1
+- ✅ **Automated PR Verification** - GitHub Actions workflow validates all pull requests
+- ✅ **ICEMAP Policy** - Core hardening policy (core-v1) with 5 load classes
+- ✅ **Polymath Team Documentation** - Solo polymath operating across 7 disciplines
+- ✅ **Natural Coordination Protocol** - NSPFRNP + bee colony pattern documented
+
+**New Files Added:**
+- `.github/workflows/glyphlint.yml` - Automated verification
+- `.github/ISSUE_TEMPLATE/ready-claim.yml` - Evidence-bound READY claims
+- `tools/glyphlint/` - Python linter + ICEMAP policy
+- `TEAM.md` - Polymath structure (7 roles)
+- `POLYMATH_ARCHITECTURE.md` - Deep dive: natural coordination
+- `GLYPHLANG_INTEGRATION.md` - Complete protocol documentation
+- `GLYPHLANG_QUICK_REFERENCE.md` - Quick reference guide
+
+**Previous Updates:**
 - ✅ Fixed TypeScript type error: Changed `seed` parameter from `boolean` to `number | null` in measurement API
 - ✅ All API endpoints now properly typed and validated
 - ✅ Build passes TypeScript compilation checks
+
+---
+
+## 🤝 Contributing
+
+**Quick Start:**
+1. Read [TEAM.md](./TEAM.md) - Understand the polymath structure & natural coordination
+2. Read [GLYPHLANG_QUICK_REFERENCE.md](./GLYPHLANG_QUICK_REFERENCE.md) - Learn token syntax
+3. Pick your discipline (scientist, engineer, designer, curator, etc.)
+4. Build with evidence capture
+5. Submit PR with GlyphLine (automated verification runs)
+
+**Key Protocols:**
+- **Natural Coordination** - Work on what calls to you (no assignments)
+- **Evidence-Bound Claims** - If you claim ~READY, show the evidence
+- **Fail-Closed Verification** - Automated checks block invalid PRs
+- **Seven Perspectives** - Polymath integrates specialist contributions
+
+**Documentation:**
+- [TEAM.md](./TEAM.md) - Team structure and operating protocol
+- [POLYMATH_ARCHITECTURE.md](./POLYMATH_ARCHITECTURE.md) - Seven-role coordination
+- [GLYPHLANG_INTEGRATION.md](./GLYPHLANG_INTEGRATION.md) - Verification protocol
+- [GLYPHLANG_QUICK_REFERENCE.md](./GLYPHLANG_QUICK_REFERENCE.md) - Token reference
+
+---
+
+## 🔬 Verification Protocol
+
+**GlyphLang Evidence Bundle** (required for `~READY:*` claims):
+
+```
+~COMMIT ~ENV:* ~RUN:* ~TRACE:* ~ICEMAP:* 
+~HASH ~JSON ~ARCH ~MANI
+```
+
+**Example GlyphLine:**
+```
+~REG:instrumentation ~LOAD:prod ~P2 ~RGCA+ ~ZD+ ~ZDM+ ~T+ 
+~RUN:baseline ~ENV:vercel ~TRACE:deploy-2026-01-23 
+~ICEMAP:core-v1 ~ICE+ ~PASS ~COMMIT ~HASH ~JSON ~ARCH 
+~MANI ~READY:core
+```
+
+**Automated Checks:**
+- ❌ Illegal combinations rejected (~P3 + ~PASS forbidden)
+- ❌ Missing evidence blocks READY claims
+- ✅ All PRs verified via GitHub Actions
+
+See [GLYPHLANG_INTEGRATION.md](./GLYPHLANG_INTEGRATION.md) for complete details.

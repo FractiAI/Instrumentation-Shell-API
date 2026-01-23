@@ -1,0 +1,52 @@
+
+---
+
+### `.github/ISSUE_TEMPLATE/ready-claim.yml`
+```yaml
+name: READY claim
+description: Make a READY claim with evidence tokens.
+title: "READY: <short description>"
+labels: ["ready-claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for evidence-bound READY claims.
+
+        Rule: if you claim `~READY:*`, you must include the minimum evidence bundle in the GlyphLine
+        (otherwise the claim is not admissible and should be `~HOLD`).
+
+        Core bundle:
+        `~COMMIT ~ENV:* ~RUN:* ~TRACE:* ~ICEMAP:* ~HASH ~JSON ~ARCH ~MANI`
+
+        UI add-on: `~SHOT`
+        Demo add-on: `~REPORT`
+
+        Paste tokens only in the GlyphLine block.
+
+  - type: textarea
+    id: glyphline
+    attributes:
+      label: GlyphLine
+      description: One line of tokens (no prose inside the block)
+      placeholder: "~REG:core ~LOAD:test ~P1 ~R+ ~G+ ~C+ ~A+ ~ZD+ ~ZDM+ ~T+ ~RUN:baseline ~ENV:ci ~TRACE:... ~ICEMAP:core-v1 ~ICE+ ~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core"
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: evidence_folder
+    attributes:
+      label: Evidence vault folder link (optional)
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Optional narrative (text-only; no digits).
+      placeholder: "(If you must include digits, put them inside tokens.)"
+    validations:
+      required: false

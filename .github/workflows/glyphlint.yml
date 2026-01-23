@@ -1,0 +1,41 @@
+name: glyphlint
+
+on:
+  pull_request:
+
+jobs:
+  glyphlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Extract PR text
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          e = json.load(open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8"))
+          pr = (e.get("pull_request") or {})
+          title = pr.get("title") or ""
+          body = pr.get("body") or ""
+          text = title + "\n\n" + body
+          pathlib.Path("._glyphlint_input.txt").write_text(text, encoding="utf-8")
+          PY
+
+      - name: Run glyphlint
+        env:
+          GLYPHLINT_REQUIRE: "1"
+        run: |
+          python tools/glyphlint/glyphlint.py \
+            --icemap tools/glyphlint/icemap.yaml \
+            --text ._glyphlint_input.txt \
+            --require

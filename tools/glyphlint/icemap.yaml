@@ -1,0 +1,62 @@
+version: 1
+icemap_id: core-v1
+description: >-
+  Core hardening policy for instrument-grade core lane.
+  Declarative: describes required probes and fail signals by load class.
+
+# Load classes map to required probes and veto signals.
+# NOTE: These names correspond to IceLayer tokens:
+#   ~LOAD:<class>
+#   ~PROBE:<name>
+#   ~SIG:<name>
+loads:
+  probe:
+    min_pressure: P0
+    required_probes: [schema]
+    veto_signals: [mismatch, leak, crack]
+
+  test:
+    min_pressure: P1
+    required_probes: [schema, hash]
+    veto_signals: [mismatch, leak, crack]
+
+  prod:
+    min_pressure: P2
+    required_probes: [schema, hash, trace, shadow, e2e]
+    veto_signals: [mismatch, leak, crack, seep, drift]
+
+  public:
+    min_pressure: P2
+    required_probes: [schema, hash, trace, shadow, e2e, diff, replay]
+    veto_signals: [mismatch, leak, crack, seep, drift]
+
+  pay:
+    # payout/irreversible consequences: freeze posture by default
+    min_pressure: P3
+    required_probes: [schema, hash, trace, shadow, e2e, diff, replay]
+    veto_signals: [mismatch, leak, crack, seep, drift]
+
+# Official lane rule bundle.
+# Used when ~DEMO:official is claimed.
+official_require:
+  # posture + comparability
+  env_required: true
+  run_required: true
+  run_must_be: baseline
+
+  # substrate verdict
+  ice_must_be: "+"   # requires ~ICE+
+
+  # truth gates
+  require_pass: true
+  require_rgca_all_plus: true
+  require_zd_plus: true
+  require_zdm_plus: true
+  require_thalet_plus: true
+
+  # readiness tier
+  require_ready_tier: demo
+
+  # optional gates (set true to enforce)
+  require_bridgespec_plus: false  # optional; enable when BridgeSpec is defined
+  require_tb_plus: false          # optional; enable when T-B semantics are defined
