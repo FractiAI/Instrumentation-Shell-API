@@ -11,10 +11,10 @@
 
 **The "Team" is One Polymath:**  
 - Prudencio L. Mendez (espressolico@gmail.com)
-
+- Marek P. Bargiel (marovw@gmail.com <-> marekbargiel@compoterebel.com)
 **Operating Across Seven Disciplines:**
 1. 🎯 **Senior Early-Stage AI CEO** - Strategy, vision, business architecture
-2. 🎬 **Hollywood Producer & Screenwriter** - Narrative, storytelling, experience design
+2. 🎬 **Producer & Screenwriter** - Narrative, storytelling, experience design
 3. 🔬 **Senior Scientist/Researcher** - FAHTP physics, measurement theory, instrumentation
 4. 🎨 **UI Designer** - Interface architecture, user experience, visual systems
 5. 💻 **Full Stack Engineer** - TypeScript, Next.js, API architecture, deployment
@@ -166,9 +166,9 @@ Evidence-bound token protocol for instrument-grade claims.
 ### **Outcome**
 
 ```
-~PASS  - All gates passed
-~HOLD  - Not ready yet
-~FAIL  - Failed verification
+~PASS  - Claim posture: proceed (only meaningful if CI verifies it)
+~HOLD  - Claim posture: not ready yet / defer
+~VETO  - Claim posture: reject / fail-closed
 ```
 
 ---
@@ -211,7 +211,8 @@ git push origin feature/your-feature
 ```
 ~REG:core ~LOAD:test ~P1 ~R+ ~G+ ~C+ ~A+ ~ZD+ ~ZDM+ ~T+ 
 ~RUN:baseline ~ENV:ci ~TRACE:run-2026-01-23 ~ICEMAP:core-v1 
-~ICE+ ~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core
+~ICE+ ~PROBE:schema ~PROBE:hash
+~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core
 ```
 
 ### **3. Fail-Closed Rules**
@@ -317,8 +318,9 @@ tools/
 ```
 ~REG:instrumentation ~LOAD:prod ~P2 ~RGCA+ ~ZD+ ~ZDM+ ~T+ 
 ~RUN:baseline ~ENV:vercel ~TRACE:deploy-2026-01-23 
-~ICEMAP:core-v1 ~ICE+ ~PASS ~COMMIT ~HASH ~JSON ~ARCH 
-~MANI ~READY:core
+~ICEMAP:core-v1 ~ICE+ 
+~PROBE:schema ~PROBE:hash ~PROBE:trace ~PROBE:shadow ~PROBE:e2e
+~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core
 ```
 
 ---
