@@ -32,6 +32,7 @@ except Exception:  # pragma: no cover
     yaml = None
 
 ALLOWED_TOKEN_RE = re.compile(r"^~[A-Za-z0-9:\+\-\?\!_\/\.\|]+$")
+TOKEN_FIND_RE = re.compile(r"~[A-Za-z0-9:\+\-\?\!_\/\.\|]+")
 
 PRESSURE_ORDER = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
 
@@ -82,10 +83,15 @@ def read_text(path: Optional[Path]) -> str:
 
 
 def extract_tokens(text: str) -> List[str]:
-    # Split on whitespace; keep only ~-prefixed units.
-    # Arrow markers (->) are narrative; ignored.
-    words = re.split(r"\s+", text)
-    return [w.strip() for w in words if w.strip().startswith("~")]
+    """Extract ~tokens from arbitrary text.
+
+    Do NOT rely on whitespace splitting because PR bodies often contain:
+    - inline code ticks: `~READY:core`
+    - punctuation: ~P1, ~PASS.
+
+    Regex extraction makes enforcement robust to formatting and prevents bypass-by-formatting.
+    """
+    return TOKEN_FIND_RE.findall(text)
 
 
 def first_value(tokens_in_order: List[str], prefix: str) -> Optional[str]:
