@@ -1,3 +1,8 @@
+
+---
+
+### `.github/ISSUE_TEMPLATE/ready-claim.yml`
+```yaml
 name: READY claim
 description: Make a READY claim with evidence tokens.
 title: "READY: <short description>"
@@ -12,7 +17,7 @@ body:
         (otherwise the claim is not admissible and should be `~HOLD`).
 
         Core bundle:
-        `~COMMIT ~ENV:<id> ~RUN:<id> ~TRACE:<id> ~ICEMAP:<id> ~HASH ~JSON ~ARCH ~MANI`
+        `~COMMIT ~ENV:* ~RUN:* ~TRACE:* ~ICEMAP:* ~HASH ~JSON ~ARCH ~MANI`
 
         UI add-on: `~SHOT`
         Demo add-on: `~REPORT`
@@ -24,7 +29,7 @@ body:
     attributes:
       label: GlyphLine
       description: One line of tokens (no prose inside the block)
-      placeholder: "~REG:core ~LOAD:test ~P1 ~R+ ~G+ ~C+ ~A+ ~ZD+ ~ZDM+ ~T+ ~RUN:baseline ~ENV:ci ~TRACE:run-2026-01-23 ~ICEMAP:core-v1 ~ICE+ ~PROBE:schema ~PROBE:hash ~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core"
+      placeholder: "~REG:core ~LOAD:test ~P1 ~R+ ~G+ ~C+ ~A+ ~ZD+ ~ZDM+ ~T+ ~RUN:baseline ~ENV:ci ~TRACE:... ~ICEMAP:core-v1 ~ICE+ ~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core"
       render: text
     validations:
       required: true
@@ -41,7 +46,7 @@ body:
     id: notes
     attributes:
       label: Notes
-      description: Optional narrative (text-only).
-      placeholder: "Optional"
+      description: Optional narrative (text-only; no digits).
+      placeholder: "(If you must include digits, put them inside tokens.)"
     validations:
       required: false
