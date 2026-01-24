@@ -5,7 +5,8 @@
 Paste ONE line. No spaces inside tokens.
 
 Example:
-`~REG:core ~LOAD:test ~P1 ~R+ ~G+ ~C+ ~A+ ~ZD+ ~ZDM+ ~T+ ~RUN:baseline ~ENV:ci ~TRACE:run-2026-01-xx ~ICEMAP:core-v1 ~ICE+ ~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core`
+`~REG:core ~LOAD:test ~P1 ~R+ ~G+ ~C+ ~A+ ~ZD+ ~ZDM+ ~T+ ~RUN:baseline ~ENV:ci ~TRACE:run-2026-01-xx ~ICEMAP:core-v1 ~ICE+ ~PROBE:schema ~PROBE:hash ~PASS ~COMMIT ~HASH ~JSON ~ARCH ~MANI ~READY:core
+`
 
 GlyphLine:
 `<one-line tokens>`
